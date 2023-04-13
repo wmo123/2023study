@@ -52,7 +52,7 @@ TCP/IP 协议被称为传输控制协议、互联网协议，又称网络通信�
 - 网际控制消息协议ICMP（Internet Control Message Protocal）发送消息，并报告有关数据包的传送错误【ping www.baidu.com】
 - 互联组管理协议IGMP（Internet Group Management Protocal）IP主机向本地多路广播路由器报告主机组成员
 
-![img](D:\document\2023年\nodejs\TCPIP\watermark)
+![img](D:\document\2023study\nodejs\TCPIP\watermark)
 
 ------
 
