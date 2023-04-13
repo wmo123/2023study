@@ -2,18 +2,15 @@ TCP/IP
 
 学习目标：
 1. 搞清什么是TCP/IP;
-
 2. 作用、工作原理；
-
 3. 三次握手、四次挥手
-
 4. 七层模型
 
-   ------
 
-   
 
-1. #### 七层模型（OSI：Open System Interconnection model）
+
+
+1. 七层模型（OSI：Open System Interconnection model）
 
  OSI 模型各层间关系和通讯时的数据流向如图所示：
 
@@ -30,17 +27,11 @@ TCP/IP
 | 物理层     | 建立维护断开物理连接 【eg：RJ45等将数据转化成0和1；】        |
 |            |                                                              |
 
-
-
-------
-
-
-
-1. #### TCP/IP 参考模型
+2. TCP/IP 参考模型
 
    [^说明]: OSI 模型由国际化标准组织制定，本应该在全球范围内推广，但由于OSI的设计过于理想不合实际，再加上当时应用TCP/IP模型的因特网（Internet）已经覆盖了全球大部分地区。种种原因，导致OSI并没有取得市场化的成功，仅仅是获得了理论上的研究成果。而 TCP/IP 模型则被作为了事实上的国际标准。
 
-   ![img](D:\document\2023study\nodejs\TCPIP\watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LqL5ZCO5LiN6K-46JGb,size_20,color_FFFFFF,t_70,g_se,x_16)
+   ![img](D:\document\2023年\nodejs\TCPIP\watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LqL5ZCO5LiN6K-46JGb,size_20,color_FFFFFF,t_70,g_se,x_16)
 
 TCP/IP 协议被称为传输控制协议、互联网协议，又称网络通信协议。是由网络层的IP协议和传输层的TCP协议组成，是一个很大的协议集合，物理层和数据链路层没有定义任何特定协议，支持所有的标准和专用的协议。
 
@@ -52,11 +43,7 @@ TCP/IP 协议被称为传输控制协议、互联网协议，又称网络通信�
 - 网际控制消息协议ICMP（Internet Control Message Protocal）发送消息，并报告有关数据包的传送错误【ping www.baidu.com】
 - 互联组管理协议IGMP（Internet Group Management Protocal）IP主机向本地多路广播路由器报告主机组成员
 
-![img](D:\document\2023年\nodejs\TCPIP\watermark)
-
-------
-
-
+![img](D:\document\2023study\nodejs\TCPIP\watermark)
 
 2. 一些概念
 
@@ -85,7 +72,7 @@ B类
 
 C类
 
-**子网掩码**： 子网掩码（subnet mask）又叫子网络遮罩，它是一种用来指明一个IP地址的哪些位标识的是主机所在的子网，以及哪些位标识的是主机位的掩码。子网掩码不能单独存在，它必须结合IP地址一起使用，子网掩码只有一个作用，就是将某个IP地址划分成网络地址和主机地址两部分。
+子网掩码： 子网掩码（subnet mask）又叫子网络遮罩，它是一种用来指明一个IP地址的哪些位标识的是主机所在的子网，以及哪些位标识的是主机位的掩码。子网掩码不能单独存在，它必须结合IP地址一起使用，子网掩码只有一个作用，就是将某个IP地址划分成网络地址和主机地址两部分。
 
 ABC三类地址都有自己默认的子网掩码：
 
