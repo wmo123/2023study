@@ -1,0 +1,39 @@
+1. 简介
+
+   nodejs不是语言也不是框架，是基于Google V8引擎的运行时环境。
+
+   > v8就是解析js的，不包含其他东西，浏览器和node是更上层的东西，浏览器除了V8用来解析js，还包含DOM，BOM这些。node和浏览器是一个层面的东西，只不过他不包含DOM和BOM，包含了一些服务端需要的API，比如读取文件这些。
+
+2. npm常用命令
+
+| 名称                       | 描述                                                         | 简写         |
+| -------------------------- | ------------------------------------------------------------ | ------------ |
+| npm install xxx            | 安装xxx模块，但不记录到package.json里                        | npm i xxx    |
+| npm install --save xxx     | 安装xxx模块，记录到package.json里,字段对应dependency，是生产环境必须依赖的模块 | npm i -S xxx |
+| npm install --save-dev xxx | 安装xxx模块，记录到package.json里,字段对应dev-dependency，是开发环境必须依赖的模块 | npm i -D xxx |
+| npm install --global xxx   | 全局安装xxx模块，但不记录到package.json里，如果模块里package.json有bin配置，会自动链接，作为cli命令 | npm i -g xxx |
+
+3. 配置环境变量
+
+![image-20230303160916741](D:\document\2023年\image-20230303160916741.png)
+
+4. this
+
+在文件中打印this，不是global属性，node自带模块化功能，一个js文件就是一个模块，模块this不是global
+
+(闭包实现)
+
+```js
+test.js
+
+console.log(this) // { }
+```
+
+5.全局变量
+
+```
+process 进程 设置环境变量
+在命令行配置NODE_ENV ， Mac export； win set
+Buffer 缓存区
+```
+

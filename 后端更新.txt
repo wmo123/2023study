@@ -1,0 +1,11 @@
+1. git pull；项目右击 -Team - pull
+2. 清理缓存 ； 任务栏project - clean
+3. 重新启动项目；
+
+
+快捷键
+alt +A 截屏
+Vscode
+ ctrl + /  注释一行代码
+ alt + /  取消注释
+Ctrl +K Ctrl +/ 收起全部注释

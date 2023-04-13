@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",// 调试类型
+            "request": "launch", // 必填项，有两种类型，分别是launch 和 attach，launch表示在启动时就进行调试，类似于执行`node --inspect index.js`, `attach`表示在node启动后再进行调试，类似于执行了node index.js，然后动态开启调试模式
+            "name": "Launch Program",
+            "skipFiles": [ // 
+                // "<node_internals>/**" 
+            ],
+            "program": "${file}/" // 程序的启动入口
+        }
+    ]
+}
