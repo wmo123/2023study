@@ -14,7 +14,7 @@ TCP/IP
 
  OSI 模型各层间关系和通讯时的数据流向如图所示：
 
-![img](D:\document\2023年\nodejs\TCPIP\jpg)
+![img](D:\document\2023study\nodejs\TCPIP\jpg)
 
 | 分层       | 功能                                                         |
 | ---------- | ------------------------------------------------------------ |
@@ -31,7 +31,7 @@ TCP/IP
 
    [^说明]: OSI 模型由国际化标准组织制定，本应该在全球范围内推广，但由于OSI的设计过于理想不合实际，再加上当时应用TCP/IP模型的因特网（Internet）已经覆盖了全球大部分地区。种种原因，导致OSI并没有取得市场化的成功，仅仅是获得了理论上的研究成果。而 TCP/IP 模型则被作为了事实上的国际标准。
 
-   ![img](D:\document\2023年\nodejs\TCPIP\watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LqL5ZCO5LiN6K-46JGb,size_20,color_FFFFFF,t_70,g_se,x_16)
+   ![img](D:\document\2023study\nodejs\TCPIP\watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LqL5ZCO5LiN6K-46JGb,size_20,color_FFFFFF,t_70,g_se,x_16)
 
 TCP/IP 协议被称为传输控制协议、互联网协议，又称网络通信协议。是由网络层的IP协议和传输层的TCP协议组成，是一个很大的协议集合，物理层和数据链路层没有定义任何特定协议，支持所有的标准和专用的协议。
 
@@ -43,7 +43,7 @@ TCP/IP 协议被称为传输控制协议、互联网协议，又称网络通信�
 - 网际控制消息协议ICMP（Internet Control Message Protocal）发送消息，并报告有关数据包的传送错误【ping www.baidu.com】
 - 互联组管理协议IGMP（Internet Group Management Protocal）IP主机向本地多路广播路由器报告主机组成员
 
-![img](D:\document\2023年\nodejs\TCPIP\watermark)
+![img](D:\document\2023study\nodejs\TCPIP\watermark)
 
 2. 一些概念
 
