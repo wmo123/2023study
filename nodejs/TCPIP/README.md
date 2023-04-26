@@ -2,18 +2,15 @@ TCP/IP
 
 学习目标：
 1. 搞清什么是TCP/IP;
-
 2. 作用、工作原理；
-
 3. 三次握手、四次挥手
-
 4. 七层模型
 
-   ------
 
-   
 
-1. #### 七层模型（OSI：Open System Interconnection model）
+
+
+1. 七层模型（OSI：Open System Interconnection model）
 
  OSI 模型各层间关系和通讯时的数据流向如图所示：
 
@@ -30,17 +27,11 @@ TCP/IP
 | 物理层     | 建立维护断开物理连接 【eg：RJ45等将数据转化成0和1；】        |
 |            |                                                              |
 
-
-
-------
-
-
-
-1. #### TCP/IP 参考模型
+2. TCP/IP 参考模型
 
    [^说明]: OSI 模型由国际化标准组织制定，本应该在全球范围内推广，但由于OSI的设计过于理想不合实际，再加上当时应用TCP/IP模型的因特网（Internet）已经覆盖了全球大部分地区。种种原因，导致OSI并没有取得市场化的成功，仅仅是获得了理论上的研究成果。而 TCP/IP 模型则被作为了事实上的国际标准。
 
-   ![img](D:\document\2023study\nodejs\TCPIP\watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LqL5ZCO5LiN6K-46JGb,size_20,color_FFFFFF,t_70,g_se,x_16)
+   ![img](D:\document\2023年\nodejs\TCPIP\watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LqL5ZCO5LiN6K-46JGb,size_20,color_FFFFFF,t_70,g_se,x_16)
 
 TCP/IP 协议被称为传输控制协议、互联网协议，又称网络通信协议。是由网络层的IP协议和传输层的TCP协议组成，是一个很大的协议集合，物理层和数据链路层没有定义任何特定协议，支持所有的标准和专用的协议。
 
@@ -54,11 +45,9 @@ TCP/IP 协议被称为传输控制协议、互联网协议，又称网络通信�
 
 ![img](D:\document\2023study\nodejs\TCPIP\watermark)
 
-------
-
-
-
 2. 一些概念
+
+<img src="D:\document\2023study\nodejs\TCPIP\image-20230413125637727.png" alt="image-20230413125637727" style="zoom:50%;" />
 
 MAC地址 和 网卡
 
@@ -77,17 +66,19 @@ MAC地址 和 网卡
 
 选择一条最短路径就是路由的工作。
 
-IP地址
+私有IP地址
 
-A类  
+A类  10.0.0.0 ~ 10.255.255.255
 
-B类
+B类  172.16.0.0 ~ 172.32.255.255
 
-C类
+C类  192.168.0.0 ~ 192.168.255.255
 
-**子网掩码**： 子网掩码（subnet mask）又叫子网络遮罩，它是一种用来指明一个IP地址的哪些位标识的是主机所在的子网，以及哪些位标识的是主机位的掩码。子网掩码不能单独存在，它必须结合IP地址一起使用，子网掩码只有一个作用，就是将某个IP地址划分成网络地址和主机地址两部分。
+其他范围的IP均为公有IP
 
-ABC三类地址都有自己默认的子网掩码：
+子网掩码： 子网掩码（subnet mask）又叫子网络遮罩，它是一种用来指明一个IP地址的哪些位标识的是主机所在的子网，以及哪些位标识的是主机位的掩码。子网掩码不能单独存在，它必须结合IP地址一起使用，子网掩码只有一个作用，就是将某个IP地址划分成网络地址和主机地址两部分。
+
+ABC三类IP地址都有自己默认的子网掩码：
 
 - A类 255 0 0 0
 - B类 255 255 0 0 
@@ -97,4 +88,72 @@ IP地址和子网掩码做**逻辑与运算**得到网络地址；
 
 如果不同IP地址的网络地址相同，则他们在一个局域网中。
 
-3. 握手和断开
+------
+
+
+
+3. ##### 三次握手和四次挥手
+
+<img src="D:\document\2023study\nodejs\TCPIP\1" alt="image-20230413134710956" style="zoom:100%;" />
+
+
+
+<img src="D:\document\2023study\nodejs\TCPIP\2" alt="image-20230413134830020" style="zoom:100%;" />
+
+
+
+所谓三次握手(Three-way Handshake)，是指建立一个 TCP 连接时，需要客户端和服务器总共发送3个包。
+
+三次握手的目的是连接服务器指定端口，建立 TCP 连接，并同步连接双方的序列号和确认号，交换 TCP 窗口大小信息。在 socket 编程中，客户端执行 `connect()` 时。将触发三次握手。
+
+- 第一次握手(SYN=1, seq=x):
+
+  客户端发送一个 TCP 的 **SYN 标志**位置1的包，指明客户端打算连接的服务器的端口，以及初始序号 X,保存在包头的序列号(Sequence Number)字段里。
+
+  发送完毕后，客户端进入 `SYN_SEND` 状态。
+
+- 第二次握手(SYN=1, ACK=1, seq=y, ACKnum=x+1):
+
+  服务器发回**确认包(ACK)**应答。即 SYN 标志位和 ACK 标志位均为1。服务器端选择自己 ISN 序列号，放到 Seq 域里，同时将确认序号(Acknowledgement Number)设置为客户的 ISN 加1，即X+1。 发送完毕后，服务器端进入 `SYN_RCVD` 状态。
+
+- 第三次握手(ACK=1，ACKnum=y+1)
+
+  客户端再次发送确认包(ACK)，SYN 标志位为0，ACK 标志位为1，并且把服务器发来 ACK 的序号字段+1，放在确定字段中发送给对方，并且在数据段放写ISN的+1
+
+  发送完毕后，客户端进入 `ESTABLISHED` 状态，当服务器端接收到这个包时，也进入 `ESTABLISHED` 状态，TCP 握手结束。
+
+三次握手的过程的示意图如下：
+
+![three-way-handshake](D:\document\2023study\nodejs\TCPIP\tcp-connection-made-three-way-handshake.png)
+
+TCP 的连接的拆除需要发送四个包，因此称为四次挥手(Four-way handshake)，也叫做改进的三次握手。客户端或服务器均可主动发起挥手动作，在 socket 编程中，任何一方执行 `close()` 操作即可产生挥手操作。
+
+- 第一次挥手(FIN=1，seq=x)
+
+  假设客户端想要关闭连接，客户端发送一个 FIN 标志位置为1的包，表示自己已经没有数据可以发送了，但是仍然可以接受数据。
+
+  发送完毕后，客户端进入 `FIN_WAIT_1` 状态。
+
+- 第二次挥手(ACK=1，ACKnum=x+1)
+
+  服务器端确认客户端的 FIN 包，发送一个确认包，表明自己接受到了客户端关闭连接的请求，但还没有准备好关闭连接。
+
+  发送完毕后，服务器端进入 `CLOSE_WAIT` 状态，客户端接收到这个确认包之后，进入 `FIN_WAIT_2` 状态，等待服务器端关闭连接。
+
+- 第三次挥手(FIN=1，seq=y)
+
+  服务器端准备好关闭连接时，向客户端发送结束连接请求，FIN 置为1。
+
+  发送完毕后，服务器端进入 `LAST_ACK` 状态，等待来自客户端的最后一个ACK。
+
+- 第四次挥手(ACK=1，ACKnum=y+1)
+
+  客户端接收到来自服务器端的关闭请求，发送一个确认包，并进入 `TIME_WAIT`状态，等待可能出现的要求重传的 ACK 包。
+
+  服务器端接收到这个确认包之后，关闭连接，进入 `CLOSED` 状态。
+
+  客户端等待了某个固定时间（两个最大段生命周期，2MSL，2 Maximum Segment Lifetime）之后，没有收到服务器端的 ACK ，认为服务器端已经正常关闭连接，于是自己也关闭连接，进入 `CLOSED` 状态。
+
+四次挥手的示意图如下：
+
+![four-way-handshake](D:\document\2023study\nodejs\TCPIP\tcp-connection-closed-four-way-handshake.png)

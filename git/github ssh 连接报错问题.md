@@ -1,6 +1,6 @@
 报错信息：
 
-![image-20230413094047561](/Users/wangmin/2023笔记/git/localhost的理解.png)
+![image-20230413094047561](D:\document\2023study/git/localhost的理解.png)
 
 解决方法：
 
